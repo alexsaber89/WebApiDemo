@@ -137,7 +137,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\ICustomerRepo.cs" />
+    <Compile Include="Controllers\IProductRepo.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="DAL\CustomerRepo.cs" />
+    <Compile Include="DAL\ProductRepo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
