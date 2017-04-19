@@ -11,17 +11,25 @@ namespace WebApiProject.App.DAL
     {
         public bool AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            if (product == null) return false;
+            return true;
         }
 
         public List<Product> GetAllProducts()
         {
-            throw new NotImplementedException();
+            return new List<Product> {};
         }
 
         public Product GetProductById(int id)
         {
-            throw new NotImplementedException();
+            if (id == 0) return null;
+
+            return new Product
+            {
+                Name = "Toilet Paper",
+                Price = 2.99,
+                StockRemaining = 2
+            };
         }
     }
 }
