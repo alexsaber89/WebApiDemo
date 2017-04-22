@@ -36,5 +36,20 @@ namespace WebApiProject.App.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, customer);
         }
+
+        [HttpGet]
+        [Route("api/customer")]
+        public HttpResponseMessage HttpGetAllCustomers()
+        {
+            var customers = _customerRepo.GetAllCustomers();
+
+            if (customers == null)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    $"There are no customers present.");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, customers);
+        }
     }
 }
