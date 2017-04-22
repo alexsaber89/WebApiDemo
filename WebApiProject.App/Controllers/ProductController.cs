@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApiProject.App.DAL;
+using WebApiProject.App.Models;
 
 namespace WebApiProject.App.Controllers
 {
@@ -50,6 +51,21 @@ namespace WebApiProject.App.Controllers
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, products);
+        }
+
+        [HttpPost]
+        [Route("api/product/addProduct")]
+        public HttpResponseMessage HttpAddProduct(Product product)
+        {
+            bool addedProduct = _productRepo.AddProduct(product);
+
+            if (!addedProduct)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    $"There was a problem adding the product.  Please try again.");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, addedProduct);
         }
     }
 }
